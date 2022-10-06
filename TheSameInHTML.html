@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script>
+        //Задача 1 из модуля логический тип и ветвление.
+        //Напишите программу, которая работала бы следующим образом: в prompt вводится значение. 
+        //С помощью унарного плюса (арифметический оператор) необходимо преобразовать его в число, 
+        //затем проверить с помощью typeof, принадлежит ли оно к множеству Number.
+        //Если это число, то вывести в консоль чётное оно или нечётное.
+        //Если передано не число, выведите: «Упс, кажется, вы ошиблись».
+        let num = +prompt('Введите число');
+        if (isNaN(num)) {
+            alert('Упс, кажется, вы ошиблись')
+        } else {
+            if (num % 2 == 0) {
+                alert('Вы ввели четное число!')
+            } else {
+                alert('Вы ввели нечетное число')
+            }
+       }
+
+       //Задача 2 из модуля логический тип и ветвление.
+       //Дана переменная x, которая может принимать любое значение. Написать программу, которая в 
+       //зависимости от типа данных x выводит в консоль сообщение вида: «x — число».
+       //Опишите три случая: когда х = числу, строке или логическому типу. В других случаях выводите сообщение: «Тип x не определён».
+        let x = 12;
+        if (typeof x === "string") {
+            console.log('x - строка');
+        } else if (typeof x === "boolean") {
+             console.log('Х- Булевский');
+        } else if ( typeof x  === "number" ) {
+             console.log('Х- число');
+        } else {
+            console.log('тип х не определен');
+        }
+
+        //Задание 7 из модуля циклы
+        //Дан массив. Нужно вывести в консоль количество чётных и нечётных элементов в массиве. 
+        //Если в массиве есть нулевой элемент, то он учитывается и выводится отдельно. 
+        //При выполнении задания необходимо учесть, что массив может содержать не только числа, но и, например, знаки, null и так далее.
+
+        let arr3 = [1,3,4,7,0,6,8,null, undefined, 'string',2,3,5,5,5,5, true];
+        let arrEven = [];
+        let arrOdd = [];
+        let arrZero = [];
+        for (i = 0; i < arr3.length; i++) {
+            if (!isNaN(arr3[i]) && arr3[i]%2 == 0 && arr3[i] !== 0 && arr3[i] !== null && typeof arr3[i] == "number"){
+                arrEven.push(arr3[i])
+            } else if (!isNaN(arr3[i]) && arr3[i]%2 !== 0 && typeof arr3[i] == "number") {
+                arrOdd.push(arr3[i])
+            } else if ( arr3[i] == 0) {
+                arrZero.push(arr3[i])
+            }
+        }
+        console.log("Четных чисел - " + arrEven.length);
+        console.log("Нечетных чисел - " +arrOdd.length);  
+        console.log("Нулей - " + arrZero.length); 
+
+
+        //Задание 8 из модуля ассоциативные массивы. Создайте произвольный массив Map.
+        // Получите его ключи и выведите в консоль все значения в виде «Ключ — Х, значение — Y».
+
+        let myMap = new Map();
+        myMap.set('dog', 'alfa');
+        myMap.set('cat', 'stepan');
+        myMap.set('parrot', 'kesha');
+
+        for (i = 0; i < myMap.size; i++){
+            let typesOne;
+            let nameOne;
+            for (let types of myMap.keys()) {
+                console.log(types);
+                typesOne[i] = types[i];
+            }
+            for (let name of myMap.values()) {
+                console.log(name);
+                nameOne[i] = name[i];
+            }
+            console.log(typesOne[i] + nameOne[i]);
+        }
+       
+
+
+    </script>
+    
+</body>
+</html>
